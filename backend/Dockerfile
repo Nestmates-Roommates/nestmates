@@ -1,6 +1,6 @@
 FROM node:latest
 
-WORKDIR /app
+WORKDIR /docker-backend
 
 COPY package*.json tsconfig.json ./
 
