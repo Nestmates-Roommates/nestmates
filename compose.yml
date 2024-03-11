@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    container_name: htn_backend
+    container_name: nestmates-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
