@@ -1,7 +1,7 @@
 import express, { type Request, type Response } from 'express'
 
 const app = express()
-const PORT = 5000
+const PORT = 5001
 
 // Routes
 app.get('/', (req: Request, res: Response) => {
