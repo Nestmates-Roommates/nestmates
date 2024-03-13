@@ -48,3 +48,19 @@ model User {
   notes             String?  // Optional
 }
 
+model Internship {
+  ID            BigInt    @id @default(autoincrement())
+  UserID        BigInt
+  Location      String
+  Company       String
+  StartDate     Int
+  EndDate       Int
+  Monthly       Float
+  Description   String?
+}
+
+model Likes {
+  ID          BigInt    @id @default(autoincrement())
+  LikerID     BigInt?
+  LikedID     BigInt?
+}

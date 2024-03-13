@@ -11,4 +11,3 @@ services:
       - /docker-backend/node_modules
     ports:
       - "5001:5001"
-    command: npm run dev
