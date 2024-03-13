@@ -1,16 +1,15 @@
-import express, { type Request, type Response } from 'express'
+import { ApolloServer } from "@apollo/server"
+import { startStandaloneServer } from "@apollo/server/standalone"
+import { typeDefs } from "./graphql/schema";
+import { resolvers } from "./graphql/resolvers"
 
-const app = express()
-const PORT = 5001
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
-// Routes
-app.get('/', (req: Request, res: Response) => {
-  console.log("attached")
-  res.send('Heell021323o Wrld!')
-})
+const { url } = await startStandaloneServer(server, {
+  listen: {port: 5001},
+});
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is runwg on http://localhost:${PORT}`)
-})
-
+console.log("Server ready at ", url);

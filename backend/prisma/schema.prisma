@@ -13,7 +13,38 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id   BigInt @id @default(autoincrement())
-  name String
+enum Frequency {
+  Often
+  Sometimes
+  DontMind
+  Mind
 }
+
+enum Diet {
+  Vegan
+  Vegetarian
+  NonVegetarian
+}
+
+model User {
+  id                BigInt      @id @default(autoincrement())
+  name              String
+  email             String   @unique
+  phone             String?  // Optional
+  school            String?  // Optional
+  socials           Json     // An array of social media links or handles
+  gender            String
+  cleanliness       Int      // 0-10
+  socialMeter       Int      // 0-10
+  noiseTolerance    Int      // 0-10
+  drinking          Frequency
+  cigs              Frequency
+  drugs             Frequency
+  diet              Diet
+  hobbies           Json     // Array of hobbies
+  bringingPets      Boolean  // True or false
+  interests         Json     // Array of interests
+  description       String?  // Optional
+  notes             String?  // Optional
+}
+
